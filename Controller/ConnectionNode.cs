@@ -182,20 +182,20 @@ namespace Umoxi
         }
 
         //Carregar o logo para db
-        public static void UploadCompanyLogo(double SCHOOL_ID, PictureEdit PB1)
+        public static void UploadCompanyLogo(double id, PictureEdit pictureLogo)
         {
-            var con = new SqlConnection(connString);
+            string appLogo = appPathAvatar + "logo.png";
+            MySqlConnection con = new MySqlConnection(connString);
             con.Open();
-            string sql = "UPDATE  SchoolInformation SET  SCH_LOGO=@photo WHERE SCHOOL_ID=" + SCHOOL_ID + " ";
-            var cmd = new SqlCommand(sql, con);
-            var ms = new MemoryStream();
-            PB1.Image.Save(ms, PB1.Image.RawFormat);
-            var data = ms.GetBuffer();
-            var p = new SqlParameter("@photo", SqlDbType.Image)
-            {
-                Value = data
-            };
-            cmd.Parameters.Add(p);
+            string sql = "UPDATE Hospital SET  logo=@photo WHERE SCHOOL_ID=" + id + " ";
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+          
+            //Elimina o ficheiro caso existe
+            if (File.Exists(appLogo)) {
+                File.Delete(appLogo);
+            }
+            pictureLogo.Image.Save(appLogo);  
+            cmd.Parameters.Add("@photo", MySqlDbType.String).Value=appLogo;
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
