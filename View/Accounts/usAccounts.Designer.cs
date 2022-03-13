@@ -464,7 +464,7 @@ namespace Umoxi
             this.DataGridView1.EnableHeadersVisualStyles = false;
             this.DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.DataGridView1.HeaderBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
-            this.DataGridView1.HeaderBgColor = System.Drawing.Color.Empty;
+            this.DataGridView1.HeaderBackColor = System.Drawing.Color.Empty;
             this.DataGridView1.HeaderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.DataGridView1.Location = new System.Drawing.Point(20, 91);
             this.DataGridView1.Name = "DataGridView1";
