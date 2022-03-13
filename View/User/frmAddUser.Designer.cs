@@ -1505,6 +1505,6 @@ namespace Umoxi
         internal DevExpress.XtraEditors.PictureEdit PictureBox1;
         internal Bunifu.UI.WinForms.BunifuCheckBox chkActive;
         internal Bunifu.UI.WinForms.BunifuTextBox txtUserID;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSave;
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSave;
     }
 }
