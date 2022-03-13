@@ -98,7 +98,7 @@ namespace Umoxi
                                 " (" + Convert.ToString(EmployeeID) + ", " + Convert.ToString(ConnectionNode.xUser_ID) + ", '" + Strings.Format(dtpEntryDate.DateTime, "MM/dd/yyyy") + ("', '" + cmbMonth.Text + "', 'SalaryPay', '" + UtilitiesFunctions.str_repl(txtAmount.Text) + "', 0, '" + UtilitiesFunctions.str_repl(txtSalaryPay.Text) + "') "));
                         }
                     }
-                    UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "Salary payment # " + txtSalaryPay.Text);
+                    UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "Salary payment # " + txtSalaryPay.Text);
                     LoadData();
                     Snackbar.Show(FrmMain.Default, MessageDialog.TextMessage("Saved"), BunifuSnackbar.MessageTypes.Success);
                 }

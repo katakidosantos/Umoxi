@@ -52,12 +52,12 @@ namespace Umoxi
 
         #endregion
 
-        public void SavetoXML(object dbcnString)
+        public void SavetoXML(object dbconnString)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("ConnectionString.xml");
             XmlElement root = doc.DocumentElement;
-            root.Attributes.Item(0).Value = Convert.ToString(dbcnString);
+            root.Attributes.Item(0).Value = Convert.ToString(dbconnString);
             XmlTextWriter writer = new XmlTextWriter("ConnectionString.xml", null);
             writer.Formatting = Formatting.Indented;
             doc.Save(writer);
@@ -66,27 +66,27 @@ namespace Umoxi
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCnString.Text))
+            if (string.IsNullOrEmpty(txtconnString.Text))
             {
                 MessageBox.Show("Please enter a connection string..", "Empty line", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                SavetoXML(txtCnString.Text);
+                SavetoXML(txtconnString.Text);
                 MessageBox.Show("Successfully saved to ConnectionString.xml", "Save record", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Environment.Exit(0);
             }
         }
 
-        private string dbcnString;
+        private string dbconnString;
 
         public void ReadfromXML()
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("ConnectionString.xml");
             XmlElement root = doc.DocumentElement;
-            dbcnString = root.Attributes.Item(0).Value;
-            txtCnString.Text = dbcnString;
+            dbconnString = root.Attributes.Item(0).Value;
+            txtconnString.Text = dbconnString;
         }
 
         public void frmServerSetting_Load(Object sender, System.EventArgs e)

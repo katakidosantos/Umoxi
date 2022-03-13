@@ -123,5 +123,10 @@ namespace Umoxi
         {
 
         }
+
+        private void AboutProgram_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

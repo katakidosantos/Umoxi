@@ -551,7 +551,7 @@ namespace Umoxi
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtPassword.OnIdleState = stateProperties8;
             this.txtPassword.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPassword.PasswordChar = '\0';
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.ReadOnly = false;
@@ -568,7 +568,7 @@ namespace Umoxi
             this.txtPassword.TextMarginLeft = 3;
             this.txtPassword.TextMarginTop = 0;
             this.txtPassword.TextPlaceholder = "";
-            this.txtPassword.UseSystemPasswordChar = false;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = true;
             this.txtPassword.OnIconRightClick += new System.EventHandler(this.txtPassword_OnIconRightClick);
             // 

@@ -162,7 +162,7 @@ namespace Umoxi
             double SCHOOL_ID = System.Convert.ToDouble(ConnectionNode.sqlDT.Rows[0]["User_ID"]);
             //upload image
             ConnectionNode.UploadUserPhoto(SCHOOL_ID, PictureBox1);
-            UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "primeiro utilizador criado # " + txtUserName.Text);
+            UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "primeiro utilizador criado # " + txtUserName.Text);
 
             #region Permissions
 
@@ -228,7 +228,7 @@ namespace Umoxi
             ConnectionNode.ExecuteSQLQuery(" INSERT INTO permission ( User_ID, AccessKey) VALUES (1, 903) ");
             ConnectionNode.ExecuteSQLQuery(" INSERT INTO permission ( User_ID, AccessKey) VALUES (1, 904) ");
 
-            UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, Conversions.ToString(DateAndTime.TimeOfDay), "Set user permission.");
+            UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, Conversions.ToString(DateAndTime.TimeOfDay), "Set user permission.");
 
             #endregion
 
@@ -344,7 +344,7 @@ namespace Umoxi
                     double SCHOOL_ID = Convert.ToDouble(ConnectionNode.sqlDT.Rows[0]["SCHOOL_ID"]);
                     //upload image
                     ConnectionNode.UploadCompanyLogo(SCHOOL_ID, PictureBox1);
-                    UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "escola adicionada # " + txtSchoolName.Text);
+                    UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "escola adicionada # " + txtSchoolName.Text);
 
                     Snackbar.Show(this, "Escola adicionada!", BunifuSnackbar.MessageTypes.Success);
                     stepProgress.SelectedItemIndex = 2;

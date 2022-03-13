@@ -28,6 +28,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Threading;
 using DevExpress.XtraBars.ToastNotifications;
+using Umoxi.Controller;
 
 namespace Umoxi
 {
@@ -52,6 +53,9 @@ namespace Umoxi
             accordionControlElementAddNewEvent.Expanded=true;
             dateNavigator1.SchedulerControl=usScheduler.Instance.schedulerControl1;
             toastNotificationsManager1.ShowNotification(toastNotificationsManager1.Notifications[0]);
+            MemoryManagement memory = new MemoryManagement();
+            memory.FlushMemory(); //Limpa os desnecessário da memoria
+
         }
 
         #region Default Instance
@@ -679,7 +683,7 @@ namespace Umoxi
             }
             else
             {
-                UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "log out...");
+                UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "log out...");
                 this.Close();
                 e.Cancel = true;
                 frmLogIn.Default.Show();
@@ -851,5 +855,14 @@ namespace Umoxi
         }
         #endregion
 
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

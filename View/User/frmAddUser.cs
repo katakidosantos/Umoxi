@@ -221,7 +221,7 @@ namespace Umoxi
                                 //upload image
                                 ConnectionNode.UploadUserPhoto(SCHOOL_ID, PictureBox1);
 
-                                UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "novo usuário adicionado # " + txtUserName.Text);
+                                UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "novo usuário adicionado # " + txtUserName.Text);
                                 this.Close();
                                 Snackbar.Show(FrmMain.Default, MessageDialog.TextMessage("Saved"), BunifuSnackbar.MessageTypes.Success);
 
@@ -270,7 +270,7 @@ namespace Umoxi
                         //update image
                         ConnectionNode.UploadUserPhoto(double.Parse(txtUserID.Text), PictureBox1);
 
-                        UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "User updated # " + txtUserName.Text);
+                        UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "User updated # " + txtUserName.Text);
                         btnSave.Text = "Salvar";
                         this.Close();
                         Snackbar.Show(FrmMain.Default, MessageDialog.TextMessage("Update"), BunifuSnackbar.MessageTypes.Success);
@@ -283,7 +283,7 @@ namespace Umoxi
                             //update image
                             ConnectionNode.UploadUserPhoto(double.Parse(txtUserID.Text), PictureBox1);
 
-                            UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "User updated # " + txtUserName.Text);
+                            UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateTime.Now.ToLongTimeString(), "User updated # " + txtUserName.Text);
                             this.Close();
                             Snackbar.Show(FrmMain.Default, MessageDialog.TextMessage("Update"), BunifuSnackbar.MessageTypes.Success);
                         }
