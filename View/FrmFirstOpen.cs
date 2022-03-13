@@ -42,17 +42,17 @@ namespace Umoxi
 
             if (string.IsNullOrWhiteSpace(txtUserName.Text))
             {
-                Snackbar.Show(this, "Nome do Usuário Obrigatoria", BunifuSnackbar.MessageTypes.Error);
+                Snackbar.Show(this, "Nome do Usuário Obrigatório", BunifuSnackbar.MessageTypes.Error);
                 TransitionsEffects.ShowTransition(txtUserName, lblUserName);
             }
             else if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
-                Snackbar.Show(this, "Contacto Obrigatoria", BunifuSnackbar.MessageTypes.Error);
+                Snackbar.Show(this, "Contacto Obrigatório", BunifuSnackbar.MessageTypes.Error);
                 TransitionsEffects.ShowTransition(txtFullName, lblFullName);
             }
             else if (string.IsNullOrWhiteSpace(txtContactNo.Text))
             {
-                Snackbar.Show(this, "Contacto Obrigatoria", BunifuSnackbar.MessageTypes.Error);
+                Snackbar.Show(this, "Contacto Obrigatório", BunifuSnackbar.MessageTypes.Error);
                 TransitionsEffects.ShowTransition(txtContactNo, lblContactNo);
             }
             else if (!UtilitiesFunctions.EmailCheck(txtEmail.Text.Trim()))
@@ -62,7 +62,7 @@ namespace Umoxi
             }
             else if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                Snackbar.Show(this, "Senha Obrigatoria", BunifuSnackbar.MessageTypes.Error);
+                Snackbar.Show(this, "Senha Obrigatório", BunifuSnackbar.MessageTypes.Error);
                 TransitionsEffects.ShowTransition(txtPassword, lblPassword);
             }
             else
@@ -106,7 +106,7 @@ namespace Umoxi
 
         private void btnBrowsePhoto_Click(object sender, EventArgs e)
         {
-            OpenFileDialog1.Filter = "Image Files (JPEG,GIF,BMP,PNG)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;";
+            OpenFileDialog1.Filter = "Imagem (JPEG,GIF,BMP,PNG)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;";
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
                 PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName);
         }
@@ -156,10 +156,10 @@ namespace Umoxi
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
-            ConnectionNode.ExecuteSQLQuery(" INSERT INTO  Users (user_name, password, full_name, e_mail, contact_no, status) VALUES ('" + UtilitiesFunctions.str_repl(txtUserName.Text) + "', '" + UtilitiesFunctions.CreateMD5(txtPassword.Text) + "', '" + UtilitiesFunctions.str_repl(txtFullName.Text) + "', '" + UtilitiesFunctions.str_repl(txtEmail.Text) + "', '" + UtilitiesFunctions.str_repl(txtContactNo.Text) + "', '" + chkVAL + "')");
+            ConnectionNode.ExecuteSQLQuery(" INSERT INTO  Usuarios (usuario, password, nome, email, contacto, ativo) VALUES ('" + UtilitiesFunctions.str_repl(txtUserName.Text) + "', '" + UtilitiesFunctions.CreateMD5(txtPassword.Text) + "', '" + UtilitiesFunctions.str_repl(txtFullName.Text) + "', '" + UtilitiesFunctions.str_repl(txtEmail.Text) + "', '" + UtilitiesFunctions.str_repl(txtContactNo.Text) + "', '" + chkVAL + "')");
             //get last inserted id
-            ConnectionNode.ExecuteSQLQuery("SELECT   User_ID  FROM   Users  ORDER BY User_ID DESC");
-            double SCHOOL_ID = System.Convert.ToDouble(ConnectionNode.sqlDT.Rows[0]["User_ID"]);
+            ConnectionNode.ExecuteSQLQuery("SELECT User_ID  FROM   Users  ORDER BY User_ID DESC");
+            int SCHOOL_ID = 1;
             //upload image
             ConnectionNode.UploadUserPhoto(SCHOOL_ID, PictureBox1);
             UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "primeiro utilizador criado # " + txtUserName.Text);
@@ -232,7 +232,7 @@ namespace Umoxi
 
             #endregion
 
-            Snackbar.Show(this, "Concluio as configurações do admin\nAbrindo o login...!", BunifuSnackbar.MessageTypes.Success);
+            Snackbar.Show(this, "Concluio as configurações do admin\n Aguarde...!", BunifuSnackbar.MessageTypes.Success);
 
             frmOpem.Interval = 5000; //cinco segundos
             frmOpem.Tick += new EventHandler(frmOpem_Tick);
@@ -305,7 +305,7 @@ namespace Umoxi
 
         private void btnBrowseLogo_Click(object sender, EventArgs e)
         {
-            OpenFileDialog1.Filter = "Image Files (JPEG,GIF,BMP,PNG)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;";
+            OpenFileDialog1.Filter = "Imagem (JPEG,GIF,BMP,PNG)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;";
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox2.Image = Image.FromFile(OpenFileDialog1.FileName);
@@ -320,7 +320,7 @@ namespace Umoxi
 
             if (string.IsNullOrEmpty(txtSchoolName.Text))
             {
-                Snackbar.Show(this, "Nome da escola necessario!", BunifuSnackbar.MessageTypes.Error);
+                Snackbar.Show(this, "Nome do Hosital necessario!", BunifuSnackbar.MessageTypes.Error);
                 TransitionsEffects.ShowTransition(txtSchoolName, lblSchoolName);
             }
             else if (string.IsNullOrEmpty(txtAddress.Text))
@@ -335,23 +335,31 @@ namespace Umoxi
             }
             else
             {
-                if (MessageBox.Show("Deseja confirmar os dados da escola " + txtSchoolName.Text + " ? ", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja confirmar os dados do Hospital " + txtSchoolName.Text + " ? ", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     ConnectionNode.ExecuteSQLQuery(" INSERT INTO SchoolInformation (School_Name, Address, Contact_No, FAX, Email, Web) VALUES " + (
                            " ('" + UtilitiesFunctions.str_repl(txtSchoolName.Text) + "', '" + UtilitiesFunctions.str_repl(txtAddress.Text) + "', '" + UtilitiesFunctions.str_repl(txtContactNoSchool.Text) + "', '" + UtilitiesFunctions.str_repl(txtFAX.Text) + "', '" + UtilitiesFunctions.str_repl(txtEmail.Text) + "', '" + UtilitiesFunctions.str_repl(txtWeb.Text) + "') "));
-                    //get last inserted id
-                    ConnectionNode.ExecuteSQLQuery("SELECT   SCHOOL_ID  FROM   SchoolInformation  ORDER BY SCHOOL_ID DESC");
-                    double SCHOOL_ID = Convert.ToDouble(ConnectionNode.sqlDT.Rows[0]["SCHOOL_ID"]);
+                    double SCHOOL_ID = 1;
                     //upload image
                     ConnectionNode.UploadCompanyLogo(SCHOOL_ID, PictureBox1);
                     UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "escola adicionada # " + txtSchoolName.Text);
 
-                    Snackbar.Show(this, "Escola adicionada!", BunifuSnackbar.MessageTypes.Success);
+                    Snackbar.Show(this, "Hospital registrado com sucesso!", BunifuSnackbar.MessageTypes.Success);
                     stepProgress.SelectedItemIndex = 2;
                     TabContent.SelectedTabPage = Page4;
                 }
 
             }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backcolorTop_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //private void btnEditImage_Click(object sender, EventArgs e)
