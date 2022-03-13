@@ -131,7 +131,7 @@ namespace Umoxi
 
         private void btnBrowsePhoto_Click(object sender, EventArgs e)
         {
-            OpenFileDialog1.Filter = "Image Files (JPEG,GIF,BMP,PNG)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;";
+            OpenFileDialog1.Filter = "Imagens (JPEG,GIF,BMP,PNG)|*.jpg;*.jpeg;*.gif;*.bmp;*.png;";
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
                 PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName);
         }
