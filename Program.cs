@@ -24,7 +24,7 @@ namespace Umoxi
             WindowsFormsSettings.ScrollUIMode = ScrollUIMode.Touch;
             WindowsFormsSettings.CustomizationFormSnapMode = SnapMode.OwnerControl;
             WindowsFormsSettings.AllowRoundedWindowCorners = DevExpress.Utils.DefaultBoolean.True;
-
+            MessageBox.Show(ConnectionNode.appPathAvatar  );
             if (!ConnectionNode.CheckServer())
                 Application.Run(new FrmServerSetting());
             else
@@ -33,7 +33,7 @@ namespace Umoxi
                 if (!(ConnectionNode.sqlDT.Rows.Count > 0))
                     Application.Run(new frmLogIn());
                 else
-                    Application.Run(new frmLogIn());
+                    Application.Run(new FrmFirstOpen());
             }
         }
     }
