@@ -40,55 +40,61 @@ namespace Umoxi
             TransitionsEffects.ResetColor(txtEmail, lblEmail);
             TransitionsEffects.ResetColor(txtPassword, lblPassword);
 
-            if (string.IsNullOrWhiteSpace(txtUserName.Text))
-            {
-                Snackbar.Show(this, "Nome do Usuário Obrigatório", BunifuSnackbar.MessageTypes.Error);
-                TransitionsEffects.ShowTransition(txtUserName, lblUserName);
-            }
-            else if (string.IsNullOrWhiteSpace(txtFullName.Text))
-            {
-                Snackbar.Show(this, "Contacto Obrigatório", BunifuSnackbar.MessageTypes.Error);
-                TransitionsEffects.ShowTransition(txtFullName, lblFullName);
-            }
-            else if (string.IsNullOrWhiteSpace(txtContactNo.Text))
-            {
-                Snackbar.Show(this, "Contacto Obrigatório", BunifuSnackbar.MessageTypes.Error);
-                TransitionsEffects.ShowTransition(txtContactNo, lblContactNo);
-            }
-            else if (!UtilitiesFunctions.EmailCheck(txtEmail.Text.Trim()))
-            {
-                Snackbar.Show(this, "Email Incorreto", BunifuSnackbar.MessageTypes.Error);
-                TransitionsEffects.ShowTransition(txtEmail, lblEmail);
-            }
-            else if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                Snackbar.Show(this, "Senha Obrigatório", BunifuSnackbar.MessageTypes.Error);
-                TransitionsEffects.ShowTransition(txtPassword, lblPassword);
-            }
-            else
-            {
-                if (passwordStrengthControl1.StrengthText == "Curta")
+
+            if (TabContent.SelectedTabPage == Page1) {
+                if (string.IsNullOrWhiteSpace(txtUserName.Text))
                 {
-                    Snackbar.Show(this, "Senha curta, tente outra!", BunifuSnackbar.MessageTypes.Warning);
+                    Snackbar.Show(this, "Nome do Usuário Obrigatório", BunifuSnackbar.MessageTypes.Error);
+                    TransitionsEffects.ShowTransition(txtUserName, lblUserName);
                 }
-                else if (passwordStrengthControl1.StrengthText == "Fraca")
+                else if (string.IsNullOrWhiteSpace(txtFullName.Text))
                 {
-                    Snackbar.Show(this, "Senha fraca, tente outra!", BunifuSnackbar.MessageTypes.Warning);
+                    Snackbar.Show(this, "Contacto Obrigatório", BunifuSnackbar.MessageTypes.Error);
+                    TransitionsEffects.ShowTransition(txtFullName, lblFullName);
+                }
+                else if (string.IsNullOrWhiteSpace(txtContactNo.Text))
+                {
+                    Snackbar.Show(this, "Contacto Obrigatório", BunifuSnackbar.MessageTypes.Error);
+                    TransitionsEffects.ShowTransition(txtContactNo, lblContactNo);
+                }
+                else if (!UtilitiesFunctions.EmailCheck(txtEmail.Text.Trim()))
+                {
+                    Snackbar.Show(this, "Email Incorreto", BunifuSnackbar.MessageTypes.Error);
+                    TransitionsEffects.ShowTransition(txtEmail, lblEmail);
+                }
+                else if (string.IsNullOrWhiteSpace(txtPassword.Text))
+                {
+                    Snackbar.Show(this, "Senha Obrigatório", BunifuSnackbar.MessageTypes.Error);
+                    TransitionsEffects.ShowTransition(txtPassword, lblPassword);
                 }
                 else
                 {
-                    if (txtPassword.Text == txtRePassword.Text)
+                    if (passwordStrengthControl1.StrengthText == "Curta")
                     {
-                        chkVAL = "Y";
-                        TabContent.SelectedTabPage = Page2;
-                        stepProgress.SelectedItemIndex = 0;
+                        Snackbar.Show(this, "Senha curta, tente outra!", BunifuSnackbar.MessageTypes.Warning);
+                    }
+                    else if (passwordStrengthControl1.StrengthText == "Fraca")
+                    {
+                        Snackbar.Show(this, "Senha fraca, tente outra!", BunifuSnackbar.MessageTypes.Warning);
                     }
                     else
-                        Snackbar.Show(this, "As senhas não conscidem!", BunifuSnackbar.MessageTypes.Error);
+                    {
+                        if (txtPassword.Text == txtRePassword.Text)
+                        {
+                            chkVAL = "Y";
+                            TabContent.SelectedTabPage = Page2;
+                            stepProgress.SelectedItemIndex = 0;
+                        }
+                        else
+                            Snackbar.Show(this, "As senhas não conscidem!", BunifuSnackbar.MessageTypes.Error);
 
+                    }
                 }
             }
-
+            else if (TabContent.SelectedTabPage == Page3)
+            {
+                
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -314,14 +320,18 @@ namespace Umoxi
 
         private void btnNextF_Click(object sender, EventArgs e)
         {
-            TransitionsEffects.ResetColor(txtSchoolName, lblSchoolName);
+            TransitionsEffects.ResetColor(txtHospitalName, lblSchoolName);
             TransitionsEffects.ResetColor(txtAddress, lblAddress);
             TransitionsEffects.ResetColor(txtContactNoSchool, lblContactNoSchool);
 
-            if (string.IsNullOrEmpty(txtSchoolName.Text))
+            if (string.IsNullOrEmpty(txtHospitalName.Text))
             {
                 Snackbar.Show(this, "Nome do Hosital necessario!", BunifuSnackbar.MessageTypes.Error);
-                TransitionsEffects.ShowTransition(txtSchoolName, lblSchoolName);
+                TransitionsEffects.ShowTransition(txtHospitalName, lblSchoolName);
+            }
+            else if (!UtilitiesFunctions.EmailCheck(txtHospitalEmail.Text.Trim()))
+            {
+
             }
             else if (string.IsNullOrEmpty(txtAddress.Text))
             {
@@ -335,14 +345,17 @@ namespace Umoxi
             }
             else
             {
-                if (MessageBox.Show("Deseja confirmar os dados do Hospital " + txtSchoolName.Text + " ? ", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja confirmar os dados do Hospital " + txtHospitalName.Text + " ? ", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ConnectionNode.ExecuteSQLQuery(" INSERT INTO SchoolInformation (School_Name, Address, Contact_No, FAX, Email, Web) VALUES " + (
-                           " ('" + UtilitiesFunctions.str_repl(txtSchoolName.Text) + "', '" + UtilitiesFunctions.str_repl(txtAddress.Text) + "', '" + UtilitiesFunctions.str_repl(txtContactNoSchool.Text) + "', '" + UtilitiesFunctions.str_repl(txtFAX.Text) + "', '" + UtilitiesFunctions.str_repl(txtEmail.Text) + "', '" + UtilitiesFunctions.str_repl(txtWeb.Text) + "') "));
-                    double SCHOOL_ID = 1;
+
+                    //Armazena o logotipo na pasta Avatares
+                    ConnectionNode.UploadCompanyLogo(1, PictureBox1);
+                    //Salva os dados na base dados
+                    ConnectionNode.ExecuteSQLQuery(" INSERT INTO hospital (nome, endereco, contactos, nif, Email) VALUES " + (
+                           " ('" + UtilitiesFunctions.str_repl(txtHospitalName.Text) + "', '" + UtilitiesFunctions.str_repl(txtAddress.Text) + "', '" + UtilitiesFunctions.str_repl(txtContactNoSchool.Text) + "', '" + UtilitiesFunctions.str_repl(txtFAX.Text) + "', '" + UtilitiesFunctions.str_repl(txtEmail.Text) + "'"));
+                   
                     //upload image
-                    ConnectionNode.UploadCompanyLogo(SCHOOL_ID, PictureBox1);
-                    UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "escola adicionada # " + txtSchoolName.Text);
+                    UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateAndTime.TimeOfDay.ToString(), "escola adicionada # " + txtHospitalName.Text);
 
                     Snackbar.Show(this, "Hospital registrado com sucesso!", BunifuSnackbar.MessageTypes.Success);
                     stepProgress.SelectedItemIndex = 2;
@@ -358,6 +371,21 @@ namespace Umoxi
         }
 
         private void backcolorTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Page3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtHospitalEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbltxtEmailSchool_Click(object sender, EventArgs e)
         {
 
         }
