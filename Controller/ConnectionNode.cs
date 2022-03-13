@@ -16,8 +16,8 @@ namespace Umoxi
         #region Start code
 
         public static DataTable sqlDT = new DataTable();
-       
-        
+
+        public static string appPathAvatar = Application.StartupPath + @"\avatar\";
         public static string connString = "server=localhost;uid=root; database=db_hospital;uid=root;pwd=";
         public static string sqlSTR;
         public static string tmpStr;

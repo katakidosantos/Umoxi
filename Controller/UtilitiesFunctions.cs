@@ -7,11 +7,45 @@ using System.Windows.Forms;
 using DevExpress.Data.Utils;
 using DevExpress.Utils.Animation;
 using System.Drawing;
+using System.IO;
 
 namespace Umoxi
 {
     class UtilitiesFunctions
     {
+
+
+        #region copyImage
+        /// <summary>
+        /// Copia imagem para o diretorio Avatar
+        /// </summary>
+        /// <param name="filePath">string do diretorio do ficheiro</param>
+        public static bool CopyImageToPathAvatar(Image image, string filename)
+        {
+            try { 
+                image.Save(ConnectionNode.appPathAvatar + filename, System.Drawing.Imaging.ImageFormat.Png);
+                return true;
+            }
+            catch { return false; }
+            }
+
+
+
+        public static bool CopyImageToPathAvatar(string filePath, string filename)
+        {                
+          try  {
+                if(!File.Exists(ConnectionNode.appPathAvatar + filename))
+                {
+                    File.Copy(filePath, ConnectionNode.appPathAvatar + filename);                
+                }
+                return true;
+
+            }
+            catch { return false; }
+        }
+
+        #endregion
+
         #region Password view
 
         public static void ViewPassword(bool status, BunifuTextBox textBox)
@@ -120,8 +154,8 @@ namespace Umoxi
         /// <param name="xAction"></param>
         public static void Logger(int user_ID, string xtime, string actionUser)
         {
-            ConnectionNode.sqlSTR = "INSERT INTO UserLog (usuario_id, acao, data) " +
-                "VALUES (" + System.Convert.ToString(user_ID) + ", "
+            ConnectionNode.sqlSTR = "INSERT INTO UserLog (usuario_id, action, date) " +
+                "VALUES (" + System.Convert.ToInt32(user_ID) + ", "
                 + "'" + actionUser + "', "
                 + "'" + Strings.Format(DateTime.Now, "MM/dd/yyyy") + "'";
             
