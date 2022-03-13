@@ -111,15 +111,32 @@ namespace Umoxi
         #endregion
 
         #region name
-        public static void Audit_Trail(int user_ID, string xtime, string xAction)
+
+        /// <summary>
+        /// Registra ação de um usúario no sistema
+        /// </summary>
+        /// <param name="user_ID"></param>
+        /// <param name="xtime"></param>
+        /// <param name="xAction"></param>
+        public static void Logger(int user_ID, string xtime, string actionUser)
         {
-            ConnectionNode.sqlSTR = "INSERT INTO UserTrail (User_ID, Action, Date, Timex, log_ID) " +
+            ConnectionNode.sqlSTR = "INSERT INTO UserLog (usuario_id, acao, data) " +
                 "VALUES (" + System.Convert.ToString(user_ID) + ", "
-                + "'" + xAction + "', "
-                + "'" + Strings.Format(DateTime.Now, "MM/dd/yyyy") + "', "
-                + "'" + xtime + "', " 
-                + System.Convert.ToString(ConnectionNode.LOGID) + ")";
+                + "'" + actionUser + "', "
+                + "'" + Strings.Format(DateTime.Now, "MM/dd/yyyy") + "'";
+            
             ConnectionNode.ExecuteSQLQuery(ConnectionNode.sqlSTR);
+        }
+
+
+        /// <summary>
+        /// Salva todas as ações de um usúario
+        /// </summary>
+        public static void Logger(string action) {
+
+            //se o user_id for nullo então registra o usúario como desconhecido
+            ConnectionNode.ExecuteSQLQuery("INSERT INTO UserLog (usuario_id, Action, Date) VALUES (" + ConnectionNode.xUser_ID ?? 0 + ", '"+ action + "','" + DateTime.Now.ToLongTimeString() + "')");
+        
         }
         #endregion
 
