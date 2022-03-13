@@ -29,7 +29,7 @@ namespace Umoxi
                 Application.Run(new FrmServerSetting());
             else
             {
-                ConnectionNode.ExecuteSQLQuery("SELECT * FROM Users");
+                ConnectionNode.ExecuteSQLQuery("SELECT * FROM usuarios");
                 if (!(ConnectionNode.sqlDT.Rows.Count > 0))
                     Application.Run(new frmLogIn());
                 else
