@@ -33,6 +33,7 @@ namespace Umoxi
        /// <param name="controlForUse">Deve ser implementado no controle a ser aplicado</param>
         public static void ControlEffect(Control controlForUse)
         {
+            
             controlToAnimate = controlForUse;
 
             if (transitionManager.Transitions[controlToAnimate] == null)
@@ -47,6 +48,8 @@ namespace Umoxi
             Transitions transitions = Transitions.PushFade;
 
             transitionManager.Transitions[controlToAnimate].TransitionType = GetTransition(transitions);
+          //  transitionManager.Dispose();
+           // controlForUse.Dispose();
         }
 
         //Tipos de animação
@@ -85,20 +88,23 @@ namespace Umoxi
                 labelUsed.ForeColor = Color.Red;
                 textBox.Focus();
             }
-            transitionManager.EndTransition();
+          transitionManager.EndTransition();
+          //  transitionManager.Dispose();
         }
 
-        //Restaurar as cores
+        /// <summary>
+        /// Retira as bordas vermelhas de erro das textBox
+        /// </summary>
+        /// <param name="textBox">Control TextBox</param>
+        /// <param name="label">Texto da control</param>
         public static void ResetColor(BunifuTextBox textBox, BunifuLabel label)
         {
-            if (string.IsNullOrWhiteSpace(textBox.Text)){ }
-            else
-            {
+            if (!string.IsNullOrWhiteSpace(textBox.Text)){ 
                 textBox.BorderColorIdle = Color.Silver;
                 textBox.BorderColorHover = Color.FromArgb(105, 181, 255);
                 textBox.BorderColorActive = Color.FromArgb(0, 113, 188);
                 label.ForeColor = Color.Black;
-            }
+            }        
         }
 
     }

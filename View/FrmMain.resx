@@ -236,17 +236,17 @@
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAREAAABFCAYAAABt/NLbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVHhe7dqhcttAFEBRw8DCwsLAwMB8QmBgYGFgYP6i
-        sJ9RWFhYGFgY6JEs7SpIlezNJI7XbtM3IfV5M4d4VmK+s1ppYYwx7z5tO5yucr5ouny96vMd8P9a/8+n
-        /3vXPZ6VBPz7NP1ws+rT/SoNI3CEuuHXHJZxHE9KFv5u1juPNPzYuSFwnKbNRNP35yURh2feyjRdytUb
-        AUet7dJtSUV95h2IgAAH5XxRkrE70wKPMMBBTRoelsvxQ8nG86wPUSsXAOzoh68lHc+zPoWtLQZ4ZT72
-        2NqNzO+DawsB9mn74bIkZD4LSVe1RQD7bL2pcR4CvFmf70pCpp3I/LlrbRHAPiIChIgIECIiQIiIACEi
-        AoSICBAiIkCIiAAhIgKEiAgQIiJAiIgAISIChIgIECIiQIiIACEiAoSICBAiIkCIiAAhIgKEiAgQIiJA
-        iIgAISIChIgIECIiQIiIACEiAoSICBAiIkCIiAAhIgKEiAgQIiJAiIgAISIChIgIECIiQIiIACEiAoSI
-        CBAiIkCIiAAhLyPSdum2ughgn5cRabp8XV0EsM9WRPr+vLoIYK90VRKyWIzjeLJKeVlfCLBrmfOnkpDN
-        TD9+eb0IoKZJ+WdJx/N0XfexScND7QKAJ02Xctc9npV0bE/bD5e1iwCezG9zSzLqMy3yWANUtWn4VlJx
-        eDavfB20AhvzI8wfdyCvZ31G0g/fazcEjkif7ufPQEoa3j7za5y2z5/Xn8YDR2PaRNy07XBaUmCMMe8x
-        i8VvlNshG75CgFcAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI0SURBVHhe7dqtbhtBFIBRw8DCwsJAw8A+QmBgYGGgod+i
+        sI9RWFhYGFgYOLtWpKDd7Yw70o4T/yS9CqnPPRpZya7M/Gl27IUxxrz7bKbNZZrS57xu81pblvVfr/I5
+        L5/3ZU3Av08a010a0n03AWdp6H6XsEzTdFGz8LrZ7jyG9LN5K+CMlc1EP/ZXNRHHZ7uVGdJT+wYA1aqm
+        Yv/UHYiAAAeV85KajJfjEQY4JXfiIYfkQ83GPOUQtb0R4KCh+1bTMU85hW1uATioHHvs7EbyH8v2BoBT
+        cjeua0LyLmTsbtqLAK8wf1PjPAR4q7wTWdeEbB9n1u1FgFNEBAgRESBERIAQEQFCRAQIEREgRESAEBEB
+        QkQECBERIEREgBARAUJEBAgRESBERIAQEQFCRAQIEREgRESAEBEBQkQECBERIEREgBARAUJEBAgRESBE
+        RIAQEQFCRAQIEREgRESAEBEBQkQECBERIEREgBARAUJEBAgRESBERIAQEQFCRAQIEREgRESAEBEBQnYi
+        kv+xmi8BnPZ8J3LbXgQ4ZSci/dhftRcBThq7m5qQxWKapotu6FJzGeCovBP5VBPyd/qh/9reAHDQ0P2q
+        6ZjncXr8mIb00NwG8ELuxFPehSxrOnYnX7hubwbYY1WTsX881gCH5D58r6k4PtuvfB20AlV5hMmvx3cg
+        z6eckeSQ/JjfBjhHOSD35WcgNQ1vn/I1Tjd2X/Lr2rKsM1pjuttMm8uaAmOMeY9ZLP4AQKCUbriI11kA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <data name="bunifuImageButton1.ActiveImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -782,4 +782,7 @@
         RU5ErkJggg==
 </value>
   </data>
+  <metadata name="toastNotificationsManager2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 54</value>
+  </metadata>
 </root>

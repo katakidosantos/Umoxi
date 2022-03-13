@@ -121,6 +121,7 @@ namespace Umoxi
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(3, 15);
             this.panel1.TabIndex = 136;
+            this.panel1.UseWaitCursor = true;
             // 
             // LoadingScreen
             // 
@@ -138,6 +139,7 @@ namespace Umoxi
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "LoadingScreen";
             this.UseWaitCursor = true;
+            this.Load += new System.EventHandler(this.LoadingScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

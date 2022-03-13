@@ -1,3 +1,3 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<database DBcnString="Data Source=(local);Initial Catalog=UmojaSchool;Integrated Security=True">
+<database DBconnString="Data Source=(local);Initial Catalog=UmojaSchool;Integrated Security=True">
 </database>

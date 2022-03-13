@@ -7,6 +7,7 @@ using Bunifu.UI.WinForms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using System.Xml;
+using MySql.Data.MySqlClient;
 
 namespace Umoxi
 {
@@ -15,7 +16,9 @@ namespace Umoxi
         #region Start code
 
         public static DataTable sqlDT = new DataTable();
-        public static string CnString;
+
+        public static string appPathAvatar = Application.StartupPath + @"\avatar\";
+        public static string connString = "server=localhost;uid=root; database=db_hospital;uid=root;pwd=";
         public static string sqlSTR;
         public static string tmpStr;
         public static string xUserPassword;
@@ -25,34 +28,37 @@ namespace Umoxi
         public static string userEmail;
         public static int LOGID;
 
-        //Metodo para ver a conexão com a base
+        ///Metodo para ver o estado da conexão com a base de dados
         public static bool CheckServer()
         {
             return true;
         }
 
-        public static DataTable ExecuteSQLQuery(string SQLQuery)
+        public static DataTable ExecuteSQLQuery(string sqlQuery)
         {
             try
             {
-                var sqlCon = new SqlConnection(CnString);
-                var sqlDA = new SqlDataAdapter(SQLQuery, sqlCon);
-                var sqlCB = new SqlCommandBuilder(sqlDA);
+                MySqlConnection sqlCon = new MySqlConnection(connString);
+                MySqlDataAdapter sqlDA = new MySqlDataAdapter(sqlQuery, sqlCon);
+                MySqlCommandBuilder sqlCB = new MySqlCommandBuilder(sqlDA);
+
                 sqlDT.Reset(); // refresh 
                 sqlDA.Fill(sqlDT);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro : " + ex.Message);
+            #if DEBUG
+                MessageBox.Show("Erro : " + ex.Message, "Erro!!! Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            #endif
             }
-
+            
             return sqlDT;
         }
 
         //Priencher as comboBox com os dados da db
         public static void FILLComboBox(string sql, System.Windows.Forms.ComboBox cb)
         {
-            var conn = new SqlConnection(CnString);
+            var conn = new SqlConnection(connString);
             cb.Items.Clear();
             try
             {
@@ -76,7 +82,7 @@ namespace Umoxi
         //Priencher as comboBox com os dados da db
         public static void FILLComboBox2(string sql, System.Windows.Forms.ComboBox cb)
         {
-            var conn = new SqlConnection(CnString);
+            var conn = new SqlConnection(connString);
             cb.Items.Clear();
             try
             {
@@ -100,7 +106,7 @@ namespace Umoxi
         //Priencher as datagridview com os dados da db
         public static void FillDataGrid(string sql, DataGridView dgv)
         {
-            var conn = new SqlConnection(CnString);
+            var conn = new SqlConnection(connString);
             try
             {
                 conn.Open();
@@ -126,7 +132,7 @@ namespace Umoxi
         //Priencher as listbox com os dados da db
         public static void FillListBox(string sql, ListBoxControl lstbox)
         {
-            var conn = new SqlConnection(CnString);
+            var conn = new SqlConnection(connString);
             lstbox.Items.Clear();
             try
             {
@@ -152,7 +158,7 @@ namespace Umoxi
         //Priencher as listbox com os dados da db
         public static void FillListBox2(string sql, ListBoxControl lstbox)
         {
-            var conn = new SqlConnection(CnString);
+            var conn = new SqlConnection(connString);
             lstbox.Items.Clear();
             try
             {
@@ -178,7 +184,7 @@ namespace Umoxi
         //Carregar o logo para db
         public static void UploadCompanyLogo(double SCHOOL_ID, PictureEdit PB1)
         {
-            var con = new SqlConnection(CnString);
+            var con = new SqlConnection(connString);
             con.Open();
             string sql = "UPDATE  SchoolInformation SET  SCH_LOGO=@photo WHERE SCHOOL_ID=" + SCHOOL_ID + " ";
             var cmd = new SqlCommand(sql, con);
@@ -198,7 +204,7 @@ namespace Umoxi
         //Carregar a photo do usuario
         public static void UploadUserPhoto(double USER_ID, PictureEdit PB1)
         {
-            var con = new SqlConnection(CnString);
+            var con = new SqlConnection(connString);
             con.Open();
             string sql = "UPDATE  Users SET  UserPicture=@photo WHERE User_ID=" + USER_ID + " ";
             var cmd = new SqlCommand(sql, con);
@@ -218,7 +224,7 @@ namespace Umoxi
         //Carregar a imagem do livro
         public static void UploadBookCoverPhoto(double BOOK_ID, PictureEdit PB1)
         {
-            var con = new SqlConnection(CnString);
+            var con = new SqlConnection(connString);
             con.Open();
             string sql = "UPDATE  BookInfo SET  CoverPhoto=@photo WHERE BOOK_ID=" + BOOK_ID + " ";
             var cmd = new SqlCommand(sql, con);
@@ -238,7 +244,7 @@ namespace Umoxi
         //Carregar a imagem do estudante
         public static void UploadStudentPhoto(double STUDENT_ID, PictureEdit PB1)
         {
-            var con = new SqlConnection(CnString);
+            var con = new SqlConnection(connString);
             con.Open();
             string sql = "UPDATE  StudentInformation SET  StudentPicture=@photo WHERE STUDENT_ID=" + STUDENT_ID + " ";
             var cmd = new SqlCommand(sql, con);
@@ -258,7 +264,7 @@ namespace Umoxi
         //Carregar a imagem do funcionario
         public static void UploadEmployeePhoto(double EmployeeID, PictureEdit PB1)
         {
-            var con = new SqlConnection(CnString);
+            var con = new SqlConnection(connString);
             con.Open();
             string sql = "UPDATE  Employee  SET  EmployeePicture=@photo WHERE EmployeeID=" + EmployeeID + " ";
             var cmd = new SqlCommand(sql, con);

@@ -306,6 +306,10 @@
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.28\Assemblies\v4.8\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -401,6 +405,7 @@
   <ItemGroup>
     <Compile Include="Controller\ConnectionNode.cs" />
     <Compile Include="Controller\HtmlBody.cs" />
+    <Compile Include="Controller\MemoryManagement.cs" />
     <Compile Include="Controller\MessageDialog.cs" />
     <Compile Include="Controller\OverlayFormShow.cs" />
     <Compile Include="Controller\OverlayLoading.cs" />
@@ -1113,6 +1118,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ServerSetting\FrmServerSetting.resx">
       <DependentUpon>FrmServerSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Student\frmAddDailyAttendance.resx">
       <DependentUpon>frmAddDailyAttendance.cs</DependentUpon>
@@ -2205,6 +2211,7 @@
     <None Include="Resources\icons8_windows_calendar1.svg" />
     <Content Include="favicon.ico" />
     <None Include="Resources\logo_255px.png" />
+    <None Include="Resources\hospital_fundo2.jpg" />
     <Content Include="Sources files\Connection string.txt" />
     <Content Include="Sources files\dbUmojaSchool.sql" />
     <Content Include="uschool.ico" />

@@ -24,16 +24,16 @@ namespace Umoxi
             WindowsFormsSettings.ScrollUIMode = ScrollUIMode.Touch;
             WindowsFormsSettings.CustomizationFormSnapMode = SnapMode.OwnerControl;
             WindowsFormsSettings.AllowRoundedWindowCorners = DevExpress.Utils.DefaultBoolean.True;
-
+            MessageBox.Show(ConnectionNode.appPathAvatar  );
             if (!ConnectionNode.CheckServer())
                 Application.Run(new FrmServerSetting());
             else
             {
-                ConnectionNode.ExecuteSQLQuery("SELECT * FROM Users");
+                ConnectionNode.ExecuteSQLQuery("SELECT * FROM usuarios");
                 if (!(ConnectionNode.sqlDT.Rows.Count > 0))
                     Application.Run(new frmLogIn());
                 else
-                    Application.Run(new frmLogIn());
+                    Application.Run(new FrmFirstOpen());
             }
         }
     }

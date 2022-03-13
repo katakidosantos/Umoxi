@@ -143,7 +143,7 @@ namespace Umoxi
             this.btnClose.BackColor1 = System.Drawing.Color.White;
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnClose.ButtonText = "Close";
+            this.btnClose.ButtonText = "Fechar";
             this.btnClose.ButtonTextMarginLeft = 0;
             this.btnClose.ColorContrastOnClick = 45;
             this.btnClose.ColorContrastOnHover = 45;
@@ -983,7 +983,7 @@ namespace Umoxi
             this.btnBrowsePhoto.BackColor1 = System.Drawing.Color.White;
             this.btnBrowsePhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBrowsePhoto.BackgroundImage")));
             this.btnBrowsePhoto.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnBrowsePhoto.ButtonText = "Browser image";
+            this.btnBrowsePhoto.ButtonText = "Procurar imagem";
             this.btnBrowsePhoto.ButtonTextMarginLeft = 0;
             this.btnBrowsePhoto.ColorContrastOnClick = 45;
             this.btnBrowsePhoto.ColorContrastOnHover = 45;
@@ -1018,7 +1018,7 @@ namespace Umoxi
             this.btnBrowsePhoto.IdleIconLeftImage = global::Umoxi.Properties.Resources.icons8_folder_24;
             this.btnBrowsePhoto.IdleIconRightImage = null;
             this.btnBrowsePhoto.IndicateFocus = false;
-            this.btnBrowsePhoto.Location = new System.Drawing.Point(42, 152);
+            this.btnBrowsePhoto.Location = new System.Drawing.Point(31, 153);
             this.btnBrowsePhoto.Name = "btnBrowsePhoto";
             this.btnBrowsePhoto.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnBrowsePhoto.OnDisabledState.BorderRadius = 10;
@@ -1052,7 +1052,7 @@ namespace Umoxi
             this.btnBrowsePhoto.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnBrowsePhoto.OnPressedState.IconLeftImage = null;
             this.btnBrowsePhoto.OnPressedState.IconRightImage = null;
-            this.btnBrowsePhoto.Size = new System.Drawing.Size(142, 37);
+            this.btnBrowsePhoto.Size = new System.Drawing.Size(163, 37);
             this.btnBrowsePhoto.TabIndex = 82;
             this.btnBrowsePhoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBrowsePhoto.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1085,9 +1085,9 @@ namespace Umoxi
             this.bunifuLabel4.Location = new System.Drawing.Point(21, 14);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(34, 15);
+            this.bunifuLabel4.Size = new System.Drawing.Size(26, 15);
             this.bunifuLabel4.TabIndex = 81;
-            this.bunifuLabel4.Text = "Photo";
+            this.bunifuLabel4.Text = "Foto";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -1505,6 +1505,6 @@ namespace Umoxi
         internal DevExpress.XtraEditors.PictureEdit PictureBox1;
         internal Bunifu.UI.WinForms.BunifuCheckBox chkActive;
         internal Bunifu.UI.WinForms.BunifuTextBox txtUserID;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSave;
+        public Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSave;
     }
 }

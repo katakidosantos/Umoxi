@@ -119,7 +119,8 @@
             this.NavigationBar.AppearanceItem.Disabled.Options.UseFont = true;
             this.NavigationBar.AppearanceItem.Hovered.Font = new System.Drawing.Font("Rubik", 12F);
             this.NavigationBar.AppearanceItem.Hovered.Options.UseFont = true;
-            this.NavigationBar.AppearanceItem.Normal.Font = new System.Drawing.Font("Rubik", 12F);
+            this.NavigationBar.AppearanceItem.Normal.Font = new System.Drawing.Font("Rubik", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NavigationBar.AppearanceItem.Normal.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
             this.NavigationBar.AppearanceItem.Normal.Options.UseFont = true;
             this.NavigationBar.AppearanceItem.Pressed.Font = new System.Drawing.Font("Rubik", 12F);
             this.NavigationBar.AppearanceItem.Pressed.Options.UseFont = true;
@@ -242,6 +243,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sobre Umoxi";
+            this.Load += new System.EventHandler(this.AboutProgram_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();

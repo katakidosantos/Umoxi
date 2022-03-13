@@ -145,7 +145,7 @@ namespace Umoxi
             {
                 ConnectionNode.ExecuteSQLQuery(" INSERT INTO StudentLedger (STUDENT_ID, FEES_ID, EntryDate, EntryTime, User_ID, Debit, Credit, Narration, Month, PayMode) VALUES " +
                     " (" + txtStuID.Text + ", 0, '" + Strings.Format(dtpEntryDate.EditValue, "MM/dd/yyyy") + ("', '" + DateTime.Now.ToShortTimeString() + "', ") + Convert.ToString(ConnectionNode.xUser_ID) + ",0, " + Convert.ToString(UtilitiesFunctions.str_repl(txtAmount.Text)) + ",   '" + Convert.ToString(UtilitiesFunctions.str_repl(txtNarration.Text)) + ("', '" + cmbMonth.Text + "', '" + cmbPayMode.Text + "') "));
-                UtilitiesFunctions.Audit_Trail(ConnectionNode.xUser_ID, DateTime.Now.ToShortTimeString(), "School payment, ID # " + txtSearch.Text + " , amount # " + txtAmount.Text);
+                UtilitiesFunctions.Logger(ConnectionNode.xUser_ID, DateTime.Now.ToShortTimeString(), "School payment, ID # " + txtSearch.Text + " , amount # " + txtAmount.Text);
 
                 this.Close();
                 Snackbar.Show(FrmMain.Default, MessageDialog.TextMessage("Saved"), BunifuSnackbar.MessageTypes.Success);

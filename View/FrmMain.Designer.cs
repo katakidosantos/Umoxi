@@ -269,6 +269,7 @@ namespace Umoxi
             this.llSupplierInformation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement28 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.toastNotificationsManager2 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerUser)).BeginInit();
@@ -307,6 +308,7 @@ namespace Umoxi
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).BeginInit();
             this.flyoutPanelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager2)).BeginInit();
             this.SuspendLayout();
             // 
             // contentControl
@@ -1986,7 +1988,6 @@ namespace Umoxi
             // 
             // accordionControlElement18
             // 
-            this.accordionControlElement18.Expanded = true;
             this.accordionControlElement18.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement18.ImageOptions.Image")));
             this.accordionControlElement18.Name = "accordionControlElement18";
             this.accordionControlElement18.Text = "Urgencia";
@@ -2295,7 +2296,7 @@ namespace Umoxi
             // 
             // bunifuPanel1
             // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(248)))));
+            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Honeydew;
             this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
             this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
@@ -2322,7 +2323,7 @@ namespace Umoxi
             this.bunifuImageButton1.AllowToggling = false;
             this.bunifuImageButton1.AllowZooming = true;
             this.bunifuImageButton1.AllowZoomingOnFocus = false;
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(248)))));
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuImageButton1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ErrorImage")));
             this.bunifuImageButton1.FadeWhenInactive = false;
@@ -2350,6 +2351,7 @@ namespace Umoxi
             this.bunifuImageButton1.WaitOnLoad = false;
             this.bunifuImageButton1.Zoom = 1;
             this.bunifuImageButton1.ZoomSpeed = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // lblFullName
             // 
@@ -2399,7 +2401,7 @@ namespace Umoxi
             this.PictureBox1.EditValue = global::Umoxi.Properties.Resources.icons8_user_name_240px;
             this.PictureBox1.Location = new System.Drawing.Point(12, 12);
             this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(248)))));
+            this.PictureBox1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.PictureBox1.Properties.Appearance.Options.UseBackColor = true;
             this.PictureBox1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.PictureBox1.Properties.OptionsMask.MaskType = DevExpress.XtraEditors.Controls.PictureEditMaskType.Circle;
@@ -2419,7 +2421,7 @@ namespace Umoxi
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.Font = new System.Drawing.Font("Rubik", 15F);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(91)))));
-            this.bunifuLabel2.Location = new System.Drawing.Point(88, 20);
+            this.bunifuLabel2.Location = new System.Drawing.Point(80, 21);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel2.Size = new System.Drawing.Size(159, 25);
@@ -2430,6 +2432,7 @@ namespace Umoxi
             this.ToolTipMenu.SetToolTip(this.bunifuLabel2, "");
             this.ToolTipMenu.SetToolTipIcon(this.bunifuLabel2, null);
             this.ToolTipMenu.SetToolTipTitle(this.bunifuLabel2, "");
+            this.bunifuLabel2.Click += new System.EventHandler(this.bunifuLabel2_Click);
             // 
             // panel3
             // 
@@ -2476,7 +2479,7 @@ namespace Umoxi
             // 
             this.pictureBox2.ErrorImage = global::Umoxi.Properties.Resources.logo_255px;
             this.pictureBox2.Image = global::Umoxi.Properties.Resources.logo_255px;
-            this.pictureBox2.Location = new System.Drawing.Point(44, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(30, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(38, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2814,6 +2817,10 @@ namespace Umoxi
             this.accordionControlElement25.Name = "accordionControlElement25";
             this.accordionControlElement25.Text = "Urgencia";
             // 
+            // toastNotificationsManager2
+            // 
+            this.toastNotificationsManager2.ApplicationId = "a0ffff84-6cfe-494d-b3c8-ffc9b101c85d";
+            // 
             // FrmMain
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(248)))));
@@ -2882,6 +2889,7 @@ namespace Umoxi
             ((System.ComponentModel.ISupportInitialize)(this.flyoutPanelControl1)).EndInit();
             this.flyoutPanelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3117,5 +3125,6 @@ namespace Umoxi
         private DevExpress.XtraBars.Navigation.AccordionControlElement llSupplierInformation;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement28;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
+        private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager2;
     }
 }
